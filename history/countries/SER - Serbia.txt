@@ -1,7 +1,7 @@
 government = monarchy
 add_government_reform = musa_rule
 primary_culture = serbian
-religion = orthodox
+religion = jewish
 technology_group = eastern
 capital = 4176	# Krusevac
 historical_friend = BOS
@@ -12,19 +12,19 @@ historical_friend = BOS
 
 1397.6.24 = {
 	monarch = {
-		name = "Stefan II"
-		dynasty = "Lazarevic"
-		birth_date = 1377.1.1		
-		adm = 5
-		dip = 3
-		mil = 4
+		name = "Dukksa The Femboy"
+		dynasty = "Dukksa"
+		birth_date = 2000.1.1		
+		adm = 0
+		dip = 0
+		mil = 0
 	}
 }
 
 1397.6.24 = {
 	heir = {
-		name = "–urad"
-		monarch_name = "–urad I"
+		name = "√êurad"
+		monarch_name = "√êurad I"
 		dynasty = "Brankovic"
 		birth_date = 1377.1.1
 		death_date = 1456.12.24
@@ -41,7 +41,7 @@ historical_friend = BOS
 
 1427.7.20 = {
 	monarch = {
-		name = "–urad I"
+		name = "√êurad I"
 		dynasty = "Brankovic"
 		birth_date = 1377.1.1		
 		adm = 2
@@ -133,7 +133,7 @@ historical_friend = BOS
 
 1459.4.9 = {
 	monarch = {
-		name = "Stjepan Tomaöevic"
+		name = "Stjepan Toma≈°evic"
 		dynasty = "Kotromanic"
 		birth_date = 1438.1.1
 		adm = 3
@@ -157,7 +157,7 @@ historical_friend = BOS
 
 1804.2.14 = {
 	monarch = {
-		name = "–orde I Petrovic"
+		name = "√êorde I Petrovic"
 		dynasty = "Karadordevic"
 		birth_date = 1762.11.16	
 		adm = 5
