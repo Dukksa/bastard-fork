@@ -4,9 +4,11 @@ emp_ned_slot1_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			tag = NED
 			tag = HOL
@@ -181,9 +183,11 @@ emp_ned_slot2_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			tag = NED
 			tag = HOL
@@ -347,9 +351,11 @@ emp_ned_slot2_ned_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			AND = {
 				tag = NED
@@ -395,9 +401,11 @@ emp_ned_slot2_ned_fla_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			tag = FLA
 			tag = BRB
@@ -443,9 +451,11 @@ emp_ned_slot2_indies_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			tag = NED
 			tag = HOL
@@ -582,9 +592,11 @@ emp_ned_slot3_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			tag = NED
 			tag = HOL
@@ -644,7 +656,7 @@ emp_ned_slot3_branch = {
 			province_id = 45
 		}
 		trigger = {
-			12 = {
+			45 = {
 				trade_share = {
 					country = ROOT
 					share = 33
@@ -784,9 +796,11 @@ emp_ned_slot4_branch = { # Statists
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		tag = NED
 		NOT = { map_setup = map_setup_random }
 	}
@@ -799,6 +813,17 @@ emp_ned_slot4_branch = { # Statists
 		#completed_by
 		
 		trigger = {
+			if = {
+				limit = {
+					has_estate = estate_burghers
+				}
+			
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 50
+				}
+			}
+			else = {
 				calc_true_if = {
 					desc = emp_ned_strengthen_the_vroedschappen_tt
 					all_owned_province = {
@@ -810,6 +835,7 @@ emp_ned_slot4_branch = { # Statists
 					}
 					amount = 5
 				}
+			}
 		}
 		effect = {
 			add_mercantilism = 2
@@ -828,10 +854,6 @@ emp_ned_slot4_branch = { # Statists
 					NOT = { has_government_attribute = has_dutch_election }
 				}
 				add_republican_tradition = 10
-			}
-			add_country_modifier = {
-				name = bastard_ned_formed
-				duration = 5475
 			}
 		}
 	}
@@ -1057,9 +1079,11 @@ emp_ned_slot4_colony_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			tag = NED
 			tag = HOL
@@ -1094,7 +1118,7 @@ emp_ned_slot4_colony_branch = {
 			else = {
 				custom_trigger_tooltip = {
 					tooltip = miss_discover_caribbean
-					carribeans_region = {
+					colonial_the_carribean = {
 						has_discovered = ROOT
 					}
 				}
@@ -1117,7 +1141,7 @@ emp_ned_slot4_colony_branch = {
 		completed_by = 1640.1.1
 		
 		provinces_to_highlight = {
-			region = northeast_america_region
+			colonial_region = colonial_eastern_america
 			has_discovered = ROOT
 			NOT = { owned_by = ROOT }
 		}
@@ -1137,7 +1161,7 @@ emp_ned_slot4_colony_branch = {
 			else = {
 				custom_trigger_tooltip = {
 					tooltip = miss_discover_eastern_america
-					northeast_america_region = {
+					colonial_eastern_america = {
 						has_discovered = ROOT
 					}
 				}
@@ -1145,7 +1169,7 @@ emp_ned_slot4_colony_branch = {
 					tooltip = miss_colonize_eastern_america
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						value = 1
-						region = northeast_america_region
+						colonial_region = colonial_eastern_america
 						is_city = yes
 					}
 				}
@@ -1167,9 +1191,11 @@ emp_ned_slot5_branch = { # Orangists
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		tag = NED
 		NOT = { map_setup = map_setup_random }
 	}
@@ -1422,9 +1448,11 @@ emp_ned_slot5_colony_branch = {
 	ai = yes
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 	}
 	potential = {
 		has_dlc = "Emperor"
+		NOT = { has_dlc = "Winds of Change" }
 		OR = {
 			tag = NED
 			tag = HOL
@@ -1446,7 +1474,7 @@ emp_ned_slot5_colony_branch = {
 		completed_by = 1650.1.1
 		
 		provinces_to_highlight = {
-			region = brazil_region
+			colonial_region = colonial_brazil
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
@@ -1454,7 +1482,7 @@ emp_ned_slot5_colony_branch = {
 		trigger = {
 			custom_trigger_tooltip = {
 			tooltip = miss_discover_brazil
-				brazil_region = {
+				colonial_brazil = {
 					has_discovered = ROOT
 				}
 			}
@@ -1462,14 +1490,14 @@ emp_ned_slot5_colony_branch = {
 				tooltip = miss_colonize_brazil
 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 					value = 1
-					region = brazil_region
+					colonial_region = colonial_brazil
 					is_city = yes
 				}
 			}
 		}
 		
 		effect = {
-			brazil_region = {
+			colonial_brazil = {
 				limit = { 
 					OR = {
 						country_or_non_sovereign_subject_holds = CAS

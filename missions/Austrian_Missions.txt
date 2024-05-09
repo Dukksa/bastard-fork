@@ -3,11 +3,11 @@ hab_holy_roman_ambitions = {
 	generic = no #if a mission without generic = yes wants this slot then it overrides this.
 	ai = yes
 	potential = {
-		NOT = { map_setup = map_setup_random }
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		NOT = { map_setup = map_setup_random }
+		tag = HAB
 	}
 	has_country_shield = yes
 	
@@ -18,33 +18,82 @@ hab_holy_roman_ambitions = {
 		completed_by = 1526.8.30
 		
 		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owner = { is_emperor = yes }
+					root = { is_emperor = no }
+				}
+				AND = {
+					owner = {
+						is_elector = yes
+						OR = {
+							NOT = { preferred_emperor = ROOT }
+							NOT = { has_opinion = { who = ROOT value = 100 } }
+						}
+					}
+					NOT = {
+						ROOT = {
+							calc_true_if = {
+								all_elector = {
+									preferred_emperor = ROOT
+									has_opinion = { who = ROOT value = 100 }
+								}
+								amount = 5
+							}
+						}
+					}
+				}
+			}
 		}
 
 		trigger = {
-			army_size_percentage = 0.5
-			num_of_generals = 1
+			is_emperor = yes
+			calc_true_if = {
+				desc = secure_the_imperial_crown.tooltip
+				all_elector = {
+					preferred_emperor = ROOT
+					has_opinion = { who = ROOT value = 100 }
+				}
+				amount = 5
+			}
 		}
 		effect = {
-			bohemia_area = {
+			if = {
 				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
+					exists = BOH
+					valid_for_personal_unions_trigger = yes
+					BOH = {
+						valid_for_personal_unions_trigger = yes
+					}
 				}
-				add_permanent_claim = ROOT
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = BOH
+				}
 			}
-			erzgebirge_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
+			else = {
+				bohemia_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
-			}
-			moravia_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
+				erzgebirge_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
 				}
-				add_permanent_claim = ROOT
+				moravia_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+				}
 			}
 			add_country_modifier = {
 				name = "succesful_bid_for_imperial_crown"
@@ -105,6 +154,12 @@ hab_holy_roman_ambitions = {
 			}
 			silesia_area = {
 				add_permanent_claim = ROOT
+			}
+			hidden_effect = {
+				remove_casus_belli = {
+					type = cb_restore_personal_union
+					target = BOH
+				}
 			}
 		}
 		ai_weight = {
@@ -212,6 +267,35 @@ hab_holy_roman_ambitions = {
 					has_dlc = "Emperor"
 				}
 				add_adm_power = 100
+				if = {
+					limit = {
+						exists = PLC
+						valid_for_personal_unions_trigger = yes
+						PLC = {
+							valid_for_personal_unions_trigger = yes
+						}
+					}
+					add_casus_belli = {
+						type = cb_restore_personal_union
+						months = 300
+						target = PLC
+					}
+				}
+				else_if = {
+					limit = {
+						exists = POL
+						valid_for_personal_unions_trigger = yes
+						POL = {
+							valid_for_personal_unions_trigger = yes
+						}
+					}
+					add_casus_belli = {
+						type = cb_restore_personal_union
+						months = 300
+						target = POL
+					}
+				}
+				else = {
 					poland_region = {
 						limit = {
 							NOT = { is_permanent_claim = ROOT }
@@ -219,12 +303,14 @@ hab_holy_roman_ambitions = {
 						}
 						add_permanent_claim = ROOT
 					}
+				}
 			}
+			else = {
 				add_country_modifier = {
 					name = "austrian_empire"
 					duration = 7300
 				}
-			
+			}
 		}
 		ai_weight = {
 			factor = 500	#Historical conquest
@@ -263,11 +349,11 @@ hab_protect_the_balkans = {
 	generic = no #if a mission without generic = yes wants this slot then it overrides this.
 	ai = yes
 	potential = {
-		NOT = { map_setup = map_setup_random }
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		NOT = { map_setup = map_setup_random }
+		tag = HAB
 	}
 	has_country_shield = yes
 	
@@ -289,6 +375,21 @@ hab_protect_the_balkans = {
 			}
 		}
 		effect = {
+			if = {
+				limit = {
+					exists = HUN
+					valid_for_personal_unions_trigger = yes
+					HUN = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = HUN
+				}
+			}
+			else = {
 				slovakia_area = {
 					limit = {
 						NOT = { is_core = ROOT }
@@ -310,9 +411,6 @@ hab_protect_the_balkans = {
 					}
 					add_permanent_claim = ROOT
 				}
-			add_country_modifier = {
-				name = "bs_royal_hungary"
-				duration = 5475
 			}
 		}
 		ai_weight = {
@@ -339,18 +437,21 @@ hab_protect_the_balkans = {
 				}
 			}
 		}
+		
 		provinces_to_highlight = {
 			OR = {
 				area = slovakia_area
 				area = transdanubia_area
+				area = alfold_area
 			}
 			NOT = {
 				ROOT = {
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-						value = 9 #out of 14
+						value = 11 #out of 14
 						OR = {
 							area = slovakia_area
 							area = transdanubia_area
+							area = alfold_area
 						}
 					}
 				}
@@ -359,10 +460,11 @@ hab_protect_the_balkans = {
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 9 #out of 14
+				value = 11 #out of 14
 				OR = {
 					area = slovakia_area
 					area = transdanubia_area
+					area = alfold_area
 				}
 			}
 		}
@@ -388,7 +490,10 @@ hab_protect_the_balkans = {
 				}
 				add_permanent_claim = ROOT
 			}
-
+			add_country_modifier = {
+				name = "royal_hungary"
+				duration = 5475
+			}
 		}
 	}
 	austrian_croatia = {
@@ -438,8 +543,8 @@ hab_protect_the_balkans = {
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			num_of_owned_provinces_with = { #the idea is that you integrate Hungary before making futher conquests in the Balkans
-				value = 7
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
 				OR = {
 					area = east_adriatic_coast_area
 					area = croatia_area
@@ -539,10 +644,10 @@ hab_italian_ambitions = {
 	ai = yes
 	
 	potential = {
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -569,7 +674,8 @@ hab_italian_ambitions = {
 				}
 			}
 		}
-		required_missions = {  }
+		
+		required_missions = { austrian_croatia }
 		provinces_to_highlight = {
 			area = venetia_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -588,20 +694,43 @@ hab_italian_ambitions = {
 					duration = 3650
 				}
 			}
-			lombardy_area = {
+			if = {
+				limit = {
+					has_dlc = "Emperor"
+				}
+				if = {
+					limit = {
+						exists = MLO
+						valid_for_personal_unions_trigger = yes
+						MLO = {
+							valid_for_personal_unions_trigger = yes
+							num_of_cities = 3 #no point in taking an OPM
+							owns = 104
+						}
+					}
+					add_casus_belli = {
+						type = cb_restore_personal_union
+						months = 300
+						target = MLO
+					}
+				}
+				else = {
+					lombardy_area = {
 						limit = {
 							NOT = { is_core = root }
 							NOT = { is_permanent_claim = root }
 						}
 						add_permanent_claim = root
 					}
-			po_valley_area = {
+					po_valley_area = {
 						limit = {
 							NOT = { is_core = root }
 							NOT = { is_permanent_claim = root }
 						}
 						add_permanent_claim = root
 					}
+				}
+			}
 		}
 	}
 }

@@ -7,13 +7,16 @@ emp_hab_poland_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -114,6 +117,9 @@ emp_hab_poland_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 75	#Just a little bit of goodies for Austria
+		}
 	}
 }
 
@@ -125,30 +131,20 @@ emp_hab_empire_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
 	has_country_shield = yes
-	
-	hab_high_income_mission = {
-		icon = mission_high_income
-		required_missions = {  } #None
-		position = 1
-		trigger = { share_of_starting_income = 1.5 }
-		effect = {
-			add_country_modifier = {
-				name = "gc_growing_economy"
-				duration = 9125 #25 years
-			}
-		}
-	}
 	
 	emp_hab_no_one_to_threaten_us = {
 		icon = imperial_ascendancy
@@ -161,7 +157,7 @@ emp_hab_empire_branch = {
 				OR = {
 					AND = {
 						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-							value = 30
+							value = 10
 							continent = europe
 						}
 						is_part_of_hre = yes
@@ -172,19 +168,18 @@ emp_hab_empire_branch = {
 		}
 		trigger = {
 			is_emperor = yes
-			imperial_influence = 40
 			OR = {
 				hre_reform_passed = emperor_privilegia_de_non_appelando
 				AND = {
 					custom_trigger_tooltip = {
-						tooltip = gecko_emp_hab_no_one_to_threaten_us_trigger_tooltip
+						tooltip = emp_hab_no_one_to_threaten_us_trigger_tooltip
 						NOT = {
 							any_country = {
 								NOT = { tag = root }
 								NOT = { is_subject_of = ROOT }
 								is_part_of_hre = yes
 								num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-									value = 30
+									value = 10
 									continent = europe
 								}
 							}
@@ -204,7 +199,7 @@ emp_hab_empire_branch = {
 			add_dip_power = 50
 			add_country_modifier = {
 				name = hab_ascendancy_in_empire
-				duration = -1
+				duration = 7300
 			}
 		}
 	}
@@ -530,13 +525,16 @@ emp_hab_prestige_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -546,7 +544,7 @@ emp_hab_prestige_branch = {
 		icon = balance_the_estates
 		required_missions = {  }
 		trigger = {
-			crown_land_share = 10
+			crown_land_share = 30
 			if = {
 				limit = {
 					has_estate = estate_nobles
@@ -643,7 +641,7 @@ emp_hab_prestige_branch = {
 				ROOT = {
 					NOT = {
 						development_in_provinces = {
-							value = 150 #start:122
+							value = 180 #start:122
 							culture = austrian
 						}
 					}
@@ -679,22 +677,6 @@ emp_hab_prestige_branch = {
 				name = hab_prosperity_windfall
 				duration = 7300
 			}
-			carinthia_area = {
-				limit = { country_or_non_sovereign_subject_holds = ROOT }
-					add_base_manpower = 1
-				}
-			inner_austria_area = {
-				limit = { country_or_non_sovereign_subject_holds = ROOT }
-					add_base_manpower = 1
-				}
-			austria_proper_area= {
-				limit = { country_or_non_sovereign_subject_holds = ROOT }
-					add_base_manpower = 1
-				}
-			tirol_area = {
-				limit = { country_or_non_sovereign_subject_holds = ROOT }
-					add_base_manpower = 1
-				}			
 		}
 	}
 	
@@ -747,7 +729,7 @@ emp_hab_prestige_branch = {
 			}
 		}
 		effect = {
-			add_prestige_or_monarch_power = { amount = 25 }
+			add_prestige = 25
 			add_country_modifier = {
 				name = hab_flourishing_in_empire
 				duration = 7300
@@ -795,13 +777,16 @@ emp_hab_minorities_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -817,15 +802,26 @@ emp_hab_minorities_branch = {
 					OR = {
 						area = slovakia_area
 						area = transdanubia_area
+						area = alfold_area
+					}
+					OR = {
+						NOT = { owned_by = root }
+						NOT = { unrest = 1 }
+						NOT = { nationalism = 1 }
+						NOT = { local_autonomy = 1 }
 					}
 					ROOT = {
 						NOT = {
 							num_of_owned_provinces_with = {
-								value = 10 #out of 14
+								value = 12 #out of 14
 								OR = {
 									area = slovakia_area
 									area = transdanubia_area
+									area = alfold_area
 								}
+								NOT = { unrest = 1 }
+								NOT = { nationalism = 1 }
+								NOT = { local_autonomy = 1 }
 							}
 						}
 					}
@@ -850,11 +846,15 @@ emp_hab_minorities_branch = {
 			owns_core_province = 153
 			owns_core_province = 1772
 			num_of_owned_provinces_with = {
-				value = 10 #out of 14
+				value = 12 #out of 14
 				OR = {
 					area = slovakia_area
 					area = transdanubia_area
+					area = alfold_area
 				}
+				NOT = { unrest = 1 }
+				NOT = { nationalism = 1 }
+				NOT = { local_autonomy = 1 }
 			}
 		}
 		effect = {
@@ -863,7 +863,7 @@ emp_hab_minorities_branch = {
 					NOT = { accepted_culture = hungarian }
 					NOT = { primary_culture = hungarian }
 				}
-				add_accepted_culture = hungarian
+				add_accepted_culture_or_dip_power = { culture = hungarian  value = 100 }
 				if = {
 					limit = {
 						153 = { culture = austrian }
@@ -889,10 +889,10 @@ emp_hab_minorities_branch = {
 				}
 				if = {
 					limit = { has_updated_culture = { culture = slavic } }
-					add_accepted_culture_or_dip_power = { culture = slovak_new }
+					add_accepted_culture_or_dip_power = { culture = slovak_new value = 100 }
 				}
 				else = {
-					add_accepted_culture_or_dip_power = { culture = slovak }
+					add_accepted_culture_or_dip_power = { culture = slovak value = 100 }
 				}
 				if = {
 					limit = {
@@ -913,93 +913,58 @@ emp_hab_minorities_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical Conquest
+		}
 	}
 	
 	emp_hab_all_minorities_are_welcome = {
 		icon = multicultural_empire
 		required_missions = { emp_hab_the_hungarian_question }
 		provinces_to_highlight = {
+			owned_by = root
+			NOT = { culture_group = root }
 			OR = {
-				area = erzgebirge_area
-				area = bohemia_area
-				area = moravia_area
-				area = slovakia_area
-				province_id = 135
-				province_id = 4240
-				province_id = 1864
-				area = carinthia_area
-				area = venetia_area
-				area = tirol_area
-				area = inner_austria_area
-				area = austria_proper_area
+				unrest = 1
+				nationalism = 1
+				local_autonomy = 1
 			}
-			NOT = {
-				owned_by = ROOT
+			ROOT = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 30
+						NOT = { culture_group = root }
+						NOT = { unrest = 1 }
+						NOT = { nationalism = 1 }
+						NOT = { local_autonomy = 1 }
+					}
+				}
 			}
 		}
 		trigger = {
 			adm_tech = 10
-			OR = {
-				HUN = {
-					NOT = {
-						total_development = 200
-					}
-				}
-				NOT = {
-					exists = HUN
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = gecko_habsburg_empire_requirements_tooltip
-				erzgebirge_area = {
-					type = all
-					owned_by = ROOT
-				}
-				bohemia_area = {
-					type = all 
-					owned_by = ROOT
-				}
-				moravia_area = {
-					type = all 
-					owned_by = ROOT
-				}
-				slovakia_area = {
-					type = all 
-					owned_by = ROOT
-				}
-				135 = {
-					owned_by = ROOT
-				}
-				4240 = {
-					owned_by = ROOT
-				}
-				1864 = {
-					owned_by = ROOT
-				}
-				carinthia_area = {
-					type = all 
-					owned_by = ROOT
-				}
-				venetia_area = {
-					type = all 
-					owned_by = ROOT
-				}
-				tirol_area = {
-					type = all 
-					owned_by = ROOT
-				}
-				inner_austria_area = {
-					type = all 
-					owned_by = ROOT
-				}
-				austria_proper_area = {
-					type = all 
-					owned_by = ROOT
-				}
+			num_of_owned_provinces_with = {
+				value = 30
+				NOT = { culture_group = root }
+				NOT = { unrest = 1 }
+				NOT = { nationalism = 1 }
+				NOT = { local_autonomy = 1 }
 			}
 		}
 		effect = {
-			country_event = { id = flavor_hab.20 }
+			if = {
+				limit = { 
+					government = monarchy
+					is_revolutionary = no 
+				}
+				country_event = { id = flavor_hab.20 }
+			}
+			else = {
+				add_country_modifier = {
+					name = hab_tolerant_society
+					duration = -1
+				}
+			}
 		}
 	}
 }
@@ -1012,13 +977,16 @@ emp_hab_german_expansion_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -1064,6 +1032,21 @@ emp_hab_german_expansion_branch = {
 			}
 		}
 		effect = {
+			if = {
+				limit = {
+					exists = BAV
+					valid_for_personal_unions_trigger = yes
+					BAV = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = BAV
+				}
+			}
+			else = {
 				upper_bavaria_area = {
 					limit = {
 						NOT = { is_core = root }
@@ -1086,7 +1069,14 @@ emp_hab_german_expansion_branch = {
 					add_permanent_claim = root
 				}
 			}
-		
+		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+			modifier = {
+				is_emperor = yes
+				factor = 0	#Unless they are the emperor
+			}
+		}
 	}
 	
 	emp_hab_union_bayern = {
@@ -1127,6 +1117,13 @@ emp_hab_german_expansion_branch = {
 			add_country_modifier = {
 				name = hab_pure_bavarian_beer
 				duration = 7300
+			}
+		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+			modifier = {
+				is_emperor = yes
+				factor = 0	#Unless they are the emperor
 			}
 		}
 	}
@@ -1192,6 +1189,13 @@ emp_hab_german_expansion_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+			modifier = {
+				is_emperor = yes
+				factor = 0	#Unless they are the emperor
+			}
+		}
 	}
 }
 
@@ -1202,13 +1206,16 @@ emp_hab_german_expansion_branch_2 = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -1382,7 +1389,7 @@ emp_hab_german_expansion_branch_2 = {
 					define_advisor = {
 						type = army_reformer
 						skill = 5
-						cost_multiplier = 0.67
+						cost_multiplier = 0.25
 						culture = prussian
 						religion = PRU
 					}
@@ -1391,7 +1398,7 @@ emp_hab_german_expansion_branch_2 = {
 					define_advisor = {
 						type = army_reformer
 						skill = 3
-						cost_multiplier = 0.67
+						cost_multiplier = 0.25
 						culture = prussian
 						religion = PRU
 					}
@@ -1402,7 +1409,7 @@ emp_hab_german_expansion_branch_2 = {
 				define_advisor = {
 					type = army_reformer
 					skill = 5
-					cost_multiplier = 0.67
+					cost_multiplier = 0.25
 					culture = saxon
 				}
 			}
@@ -1410,10 +1417,13 @@ emp_hab_german_expansion_branch_2 = {
 				define_advisor = {
 					type = army_reformer
 					skill = 3
-					cost_multiplier = 0.67
+					cost_multiplier = 0.25
 					culture = saxon
 				}
 			}
+		}
+		ai_weight = {
+			factor = 0	#Not really doable
 		}
 	}
 }
@@ -1425,13 +1435,16 @@ emp_hab_western_expansion_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -1439,14 +1452,6 @@ emp_hab_western_expansion_branch = {
 	
 	emp_hab_connect_further_austria = {
 		icon = connect_further_austria
-		
-		ai_weight = {
-			factor = 3
-			modifier = {
-				factor = 0.33
-				NOT = { owns = 1880 }
-			}
-		}
 
 		position = 9
 		
@@ -1499,6 +1504,17 @@ emp_hab_western_expansion_branch = {
 					NOT = { is_permanent_claim = root }
 				}
 				add_permanent_claim = root
+			}
+		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+			modifier = {
+				is_emperor = yes	#But not when you are the emperor
+				factor = 0
+			}
+			modifier = {
+				factor = 0.33
+				NOT = { owns = 1880 }
 			}
 		}
 	}
@@ -1580,6 +1596,13 @@ emp_hab_western_expansion_branch = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+			modifier = {
+				is_emperor = yes	#But not when you are the emperor
+				factor = 0
+			}
+		}
 	}
 	
 	emp_hab_conquer_burgundy = {
@@ -1633,6 +1656,9 @@ emp_hab_western_expansion_branch = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+		}
 	}
 	
 	emp_hab_conquer_france = {
@@ -1666,6 +1692,9 @@ emp_hab_western_expansion_branch = {
 				duration = 10950
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical rivalry
+		}
 	}
 }
 
@@ -1678,13 +1707,16 @@ emp_hab_balkans = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -1694,10 +1726,6 @@ emp_hab_balkans = {
 		icon = defeat_the_serbs
 
 		position = 7
-
-		ai_weight = {
-			factor = 2
-		}
 		
 		required_missions = { austrian_croatia }
 		provinces_to_highlight = {
@@ -1761,6 +1789,9 @@ emp_hab_balkans = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+		}
 	}
 }
 
@@ -1771,13 +1802,16 @@ emp_hab_balkans_2 = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -1834,6 +1868,9 @@ emp_hab_balkans_2 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical rivalry conquest
+		}
 	}
 	
 	emp_hab_scourge_of_europe = {
@@ -1861,7 +1898,7 @@ emp_hab_balkans_2 = {
 			}
 		}
 		effect = {
-			add_prestige_or_monarch_power = { amount = 20 }
+			add_prestige = 20
 			add_country_modifier = {
 				name = hab_victory_over_ottomans
 				duration = -1
@@ -1872,6 +1909,9 @@ emp_hab_balkans_2 = {
 				}
 				country_event = { id = new_flavour_hun.3 } #event used by Hungary too
 			}
+		}
+		ai_weight = {
+			factor = 500	#Historical rivalry conquest
 		}
 	}
 }
@@ -1884,13 +1924,16 @@ emp_hab_more_italy_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
@@ -1900,10 +1943,6 @@ emp_hab_more_italy_branch = {
 		icon = kingdom_of_lombardy
 
 		position = 9
-		
-		ai_weight = {
-			factor = 3
-		}
 		
 		required_missions = { austrian_italian_ambition }
 		provinces_to_highlight = {
@@ -1940,8 +1979,36 @@ emp_hab_more_italy_branch = {
 			}
 		}
 		effect = {
-			add_prestige_or_monarch_power = { amount = 20 }
-			
+			add_prestige = 20
+			if = {
+				limit = {
+					exists = TTS
+					valid_for_personal_unions_trigger = yes
+					TTS = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = TTS
+				}
+			}
+			else_if = {
+				limit = {
+					exists = NAP
+					valid_for_personal_unions_trigger = yes
+					NAP = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = NAP
+				}
+			}
+			else = {
 				naples_area = {
 					limit = {
 						NOT = { is_core = root }
@@ -1964,6 +2031,15 @@ emp_hab_more_italy_branch = {
 					add_permanent_claim = root
 				}
 			}
+		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+			modifier = {
+				factor = 0	#Shadow Kingdom and Emperorship though
+				is_emperor = yes
+				NOT = { is_year = 1490 }
+			}
+		}
 	}
 	
 	emp_hab_naples = {
@@ -2020,6 +2096,9 @@ emp_hab_more_italy_branch = {
 				add_permanent_claim = root
 			}
 		}
+		ai_weight = {
+			factor = 500	#Historical conquest
+		}
 	}
 }
 
@@ -2032,13 +2111,16 @@ emp_hab_diplo_branch = {
 	
 	potential_on_load = {
 		has_dlc = "Emperor"
+		NOT = {
+			has_dlc = "Winds of Change"
+		}
 	}
 	potential = {
 		has_dlc = "Emperor"
-		OR = {
-			tag = HAB
-			tag = AHU
+		NOT = {
+			has_dlc = "Winds of Change"
 		}
+		tag = HAB
 		NOT = { map_setup = map_setup_random }
 	}
 	
