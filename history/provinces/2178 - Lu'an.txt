@@ -1,8 +1,8 @@
 # 2178 - Lu'an
 
 owner = 
-controller = owner = 
-add_core = owner = 
+controller = owner 
+add_core = owner  
 culture = jin
 religion = confucianism
 capital = "Lu'an"
