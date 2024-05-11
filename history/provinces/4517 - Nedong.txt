@@ -1,6 +1,6 @@
 #4517 - Nedong
 
-owner = PHA
+owner = 
 controller = PHA
 add_core = PHA
 culture = tibetan

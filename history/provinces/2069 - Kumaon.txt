@@ -1,6 +1,6 @@
 #2069 - Kumaon
 
-owner = 
+owner = GHR
 controller = KMN
 culture = pahari
 religion = hinduism

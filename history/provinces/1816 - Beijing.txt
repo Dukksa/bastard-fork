@@ -2,7 +2,7 @@
 
 owner = MNG
 controller = MNG
-add_core = owner = MNG
+add_core = owner = 
 culture = chihan
 religion = confucianism
 capital = "Beijing"

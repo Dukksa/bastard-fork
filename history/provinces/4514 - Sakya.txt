@@ -1,6 +1,6 @@
 #4514 - Sakya
 
-owner = UTS
+owner = 
 controller = UTS
 add_core = UTS
 add_core = PHA

@@ -1,6 +1,6 @@
 #4515 - Gyirong
 
-owner = UTS
+owner = 
 controller = UTS
 add_core = UTS
 add_core = PHA

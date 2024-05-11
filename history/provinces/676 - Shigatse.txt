@@ -1,6 +1,6 @@
 #676 - U-Tsang
 
-owner = UTS
+owner = 
 controller = UTS
 add_core = UTS
 culture = tibetan

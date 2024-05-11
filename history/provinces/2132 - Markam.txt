@@ -1,6 +1,6 @@
 # 2132 - Markam
 
-owner = KAM
+owner = 
 controller = KAM
 add_core = KAM
 culture = tibetan

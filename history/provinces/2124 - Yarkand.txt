@@ -1,6 +1,6 @@
 # 2124 - Yarkand
 
-owner = 
+owner = KAS
 controller = KAS
 add_core = KAS
 culture = uyghur

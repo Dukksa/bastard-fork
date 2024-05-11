@@ -1,6 +1,6 @@
 #4518 - Tsurphu 
 
-owner = UTS
+owner = 
 controller = UTS
 add_core = UTS
 add_core = PHA

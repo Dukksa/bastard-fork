@@ -1,6 +1,6 @@
 # 2128 - Ngari
 
-owner = GUG
+owner = 
 controller = GUG
 add_core = GUG
 culture = tibetan

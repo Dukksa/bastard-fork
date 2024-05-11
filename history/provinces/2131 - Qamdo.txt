@@ -1,6 +1,6 @@
 # 2131 - Qamdo
 
-owner = KAM
+owner = 
 controller = KAM
 add_core = KAM
 culture = tibetan

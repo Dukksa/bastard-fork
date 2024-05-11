@@ -1,6 +1,6 @@
 #4205 - Nagchu
 
-owner = UTS
+owner = 
 controller = UTS
 add_core = UTS
 culture = tibetan

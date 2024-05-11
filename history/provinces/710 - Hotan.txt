@@ -1,6 +1,6 @@
 #710 - Hotan
 
-owner = 
+owner = KAS
 controller = KAS
 add_core = KAS
 culture = uyghur
