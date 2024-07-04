@@ -244,7 +244,59 @@ sic_high_income_mission_desc:0 ""
 #England
 
 gc_eng_rb_take_gibraltar_title:0 "Take Copenhagen"
+
 gc_eng_rb_take_gibraltar_desc:0 ""
+
+eng_incorporation_of_wales_title: "Integrate wales"
+eng_incorporation_of_wales_desc: "We need to incorporate wales to fullfill our goals! accept for manpowermodifier, convert for dip points"
+
+gbr_develop_ireland_title: "Developing Ireland"
+gbr_develop_ireland_desc: "We dont want the IRA to form, lets treat them fairly"
+
+gbr_secure_the_iron_title: "Secure ironsupply"
+gbr_secure_the_iron_desc: "we need to secure our iron from the germans 500 years early"
+
+gbr_the_fur_trade_title: "The fur trade"
+gbr_the_fur_trade_desc: "Fur is a great commodity to trade in"
+
+eng_develop_the_land_title: "Improve the capital"
+eng_develop_the_land_desc: "A strong capital is key to manage and supply our conquests"
+
+gbr_the_economy_title: "Economic focus"
+gbr_the_economy_desc: "We need to focus on our economy to be strong"
+
+gbr_well_developed_title: "One metropolis"
+gbr_well_developed_desc: ""
+
+gbr_consoledate_the_foothold_title: "A foothold"
+gbr_consoledate_the_foothold_desc: "A foothold on the continent opens opportunities"
+
+gbr_down_to_the_former_homeland_title: "The former homeland"
+gbr_down_to_the_former_homeland_desc: "We shall return to where we have come from and leave the poor scots alone! SCOTTLAND FOREVER!"
+
+gbr_war_mission_title: "Expansionist focus"
+gbr_war_mission_desc: "Expansion is a form of growth"
+
+gbr_into_the_north_title: "Northern conquest"
+gbr_into_the_north_desc: "The northeast offers a great opportunity for conquest and trade"
+
+gbr_scandinavia_defeated_title: "Scandinavia defeated"
+gbr_scandinavia_defeated_desc: "The scandinavian have bean defeated and we shall profit"
+
+gbr_we_need_a_navy_title: "A new navy"
+gbr_we_need_a_navy_desc: "The strong and new navy is our ticked off this rainy shithole"
+
+gbr_prepare_a_exploration_fleet_title: "Explorationfleet"
+gbr_prepare_a_exploration_fleet_desc: "We have heard of new lands and we shall go and explore them"
+
+gbr_build_dockyards_title: "Building docks"
+gbr_build_dockyards_desc: "A navy needs to be maintained and expanded"
+
+gbr_mynewworld_title: "A new world"
+gbr_mynewworld_desc: "A new world? it shall be ours!"
+
+gbr_our_place_in_the_sun_title: "Our place in the sun!"
+gbr_our_place_in_the_sun_desc: "Our place in the sun shall be taken by no one! oh but someone has a better spot?"
 
 #songhai mission
 

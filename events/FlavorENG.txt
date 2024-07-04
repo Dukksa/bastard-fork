@@ -1,3 +1,4 @@
+
 ########################################
 # Major Flavor Events                  #
 ########################################
@@ -34,7 +35,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 60
+		months = 241
 	}
 
 	immediate = {
@@ -111,6 +112,7 @@ country_event = {
 		name = "flavor_eng.EVTOPTB9100"
 		ai_chance = { factor = 25 }
 		add_reform_desire = 0.03
+		add_prestige = -0.15
 		add_country_modifier = {
 			name = eng_tolerates_lollards
 			duration = -1
@@ -169,6 +171,56 @@ country_event = {
 				clr_province_flag = lollards
 			}
 		}
+	}
+}
+
+# Future Expansion
+country_event = {
+	id = flavor_eng.6996
+	title = "flavor_eng.EVTNAME6996"
+	desc = "flavor_eng.EVTDESC6996"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 14
+			region = france_region
+			has_port = yes
+		}
+		173 = {
+			owned_by = root
+		}
+	}
+	
+	#option = {			# continue on to iberia
+		#name = "flavor_eng.EVTOPTA6996"
+		#ai_chance = { factor = 80 }
+		#galicia_area = {
+			#add_claim = root
+		#}
+		#1746 = {
+			#add_claim = ROOT
+		#}
+		#1745 = {
+			#add_claim = ROOT
+		#}
+		#208 = {
+			#add_claim = ROOT
+		#}
+		#set_country_flag = eng_in_iberia
+	#}
+	option = {		# we shall return to scandinavia
+		name = "flavor_eng.EVTOPTB6996"
+		ai_chance = { factor = 20 }
+		denmark_area = {
+			add_claim = root
+		}
+		jutland_area = {
+			add_claim = root
+		}
+		set_country_flag = eng_in_scandinavia
 	}
 }
 
@@ -256,7 +308,7 @@ country_event = {
 	option = {		# We will never give this up!
 		name = "flavor_eng.EVTOPTB9104"
 		ai_chance = { factor = 20 }
-		add_stability = -1
+		add_prestige = -20
 		FRA = {
 			add_opinion = {
 				who = ROOT
@@ -3020,4 +3072,6 @@ country_event = {
 			duration = 3650
 		}
 	}
+
+
 }

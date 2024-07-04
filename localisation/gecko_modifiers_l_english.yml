@@ -202,6 +202,29 @@
  too_many_subjects:0 "Too Many Subjects"
  too_many_subjects_influence:0 "Too Many Subjects - Influence Ideas"
 
+#England
+
+gbr_integrated_wales: "Integrated Wales"
+eng_preparing_the_people: "Prepared for conquest"
+gbr_light_ships: "New Ships"
+gbr_cultural_unity: "Cultural Unity"
+eng_expanding_the_infrastructure: "Expanding infrastructure"
+eng_construction: "English Construction"
+eng_iron_secured: "Secured ironsupply"
+eng_germany: "Germany subdued"
+eng_navy_big: "Big navy"
+center_of_most_trade: "Center of most trade"
+eng_colony_chance: "Colonial chances"
+eng_dixie: "Dixie"
+eng_yankee: "Yankee"
+eng_mexico: "Mexico"
+eng_argentina: "Argentina"
+eng_brazil: "Brazilia"
+eng_caribbean: "Caribean"
+eng_canada: "Canada"
+eng_colombia: "Colombia"
+
+
 #Critical Province
  critical_province:0 "Critical Province"
 

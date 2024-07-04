@@ -34,17 +34,23 @@ brilliant_diplomat = {
 
 #England / Great Britain
 eng_tolerates_lollards = {
-	papal_influence = -1
-	tolerance_heretic = 1
+	manpower_recovery_speed = 0.1
+	legitimacy = 1
+	
 }
 eng_opposes_lollards = {
-	papal_influence = 1
+	curia_powers_cost = -0.10
 	tolerance_own = 1
 }
 
 eng_court_star_chamber = {
 	global_unrest = -1
 	stability_cost_modifier = 0.05
+}
+
+eng_channel_dominance = {
+	global_ship_trade_power = 0.2
+	placed_merchant_power = 15
 }
 
 annexers_legacy = {
@@ -2228,6 +2234,10 @@ orinoco_estuary_modifier = {
 }
 
 # England flavor modifiers
+
+gbr_cultural_unity = {
+	development_cost = -0.05
+}
 
 lollards = {
 	local_unrest = 20

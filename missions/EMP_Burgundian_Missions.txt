@@ -113,16 +113,6 @@ emp_burgundy_1 = {
 				pedrero =  ROOT
 				pedrero =  ROOT
 				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
-				pedrero =  ROOT
 			}
 		}
 	}
